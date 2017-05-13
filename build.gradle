@@ -14,3 +14,15 @@ ext {
     	compile "com.github.Ughuuu:GemMaker:$gemEngineVersion"
     	compileOnly "org.projectlombok:lombok:$lombokVersion"
     }
+    sourceSets{
+    	src
+	    main{
+	    	java{
+	    			srcDir 'src'
+				}
+	    	}
+    }
+    
+    jar{
+    from sourceSets.src.output
+    }
