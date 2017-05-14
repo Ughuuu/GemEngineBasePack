@@ -1,9 +1,7 @@
 package com.gemengine.system;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.gemengine.component.Component;
@@ -17,21 +15,36 @@ import com.google.inject.Inject;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
+/**
+ * Processes all components that extend ScriptComponent. The components are
+ * called in the onInit when they are started and then in the onUpdate function,
+ * like if they were in an infinite while.
+ * 
+ * @author Dragos
+ *
+ */
 public class ScriptSystem extends ComponentUpdaterSystem implements ComponentListener {
+
 	private final ComponentSystem componentSystem;
 	private final List<ScriptComponent> toInit = new ArrayList<ScriptComponent>();
- 
-	private static enum ScriptState {
-		Active
-	}
 
-	private Map<Integer, ScriptState> scriptToState = new HashMap<Integer, ScriptState>();
-
+	@SuppressWarnings("unchecked")
 	@Inject
 	public ScriptSystem(ComponentSystem componentSystem) {
 		super(componentSystem, ListenerHelper.createConfiguration(ScriptComponent.class), true, 1);
 		this.componentSystem = componentSystem;
 		componentSystem.addComponentListener(this);
+	}
+
+	@Override
+	public <T extends Component> void onChange(ComponentChangeType change, T comp) {
+		switch (change) {
+		case ADD:
+			toInit.add((ScriptComponent) comp);
+			break;
+		case DELETE:
+			break;
+		}
 	}
 
 	@Override
@@ -62,20 +75,7 @@ public class ScriptSystem extends ComponentUpdaterSystem implements ComponentLis
 	}
 
 	@Override
-	public <T extends Component> void onChange(ComponentChangeType change, T comp) {
-		switch (change) {
-		case ADD:
-			toInit.add((ScriptComponent) comp);
-			break;
-		case DELETE:
-			break;
-		}
-	}
-
-	@Override
 	public <T extends Component> void onNotify(String arg0, T arg1) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

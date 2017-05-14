@@ -11,7 +11,7 @@ ext {
     }
 
     dependencies {
-    	compile "com.github.Ughuuu:GemMaker:$gemEngineVersion"
+    	compileOnly "com.github.Ughuuu:GemMaker:$gemEngineVersion"
     	compileOnly "org.projectlombok:lombok:$lombokVersion"
     }
     sourceSets{

@@ -16,9 +16,9 @@ public abstract class NotifyComponent extends OwnedComponent implements EntityCo
 	public NotifyComponent(ComponentSystem componentSystem) {
 		super(componentSystem);
 	}
-	
+
 	@Override
-	public void onCreate(){
+	public void onCreate() {
 		componentSystem.addEntityComponentListener(this);
 	}
 

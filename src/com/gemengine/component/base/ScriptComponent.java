@@ -11,8 +11,8 @@ public abstract class ScriptComponent extends OwnedComponent {
 		super(componentSystem);
 		this.entitySystem = entitySystem;
 	}
-	
-	public void onInit(){
+
+	public void onInit() {
 	}
 
 	public void onUpdate(float delta) {

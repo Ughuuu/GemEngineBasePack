@@ -12,16 +12,32 @@ import com.gemengine.system.base.ComponentListenerSystem;
 import com.gemengine.system.helper.ListenerHelper;
 import com.google.inject.Inject;
 
+/**
+ * The tag system adds support for tags. Use this system to search for entities
+ * that share a specific tag.
+ * 
+ * @author Dragos
+ *
+ */
 public class TagSystem extends ComponentListenerSystem {
+	/**
+	 * Holds the entities based on their tags.
+	 */
 	private Map<String, List<Entity>> tags = new HashMap<String, List<Entity>>();
-	private final ComponentSystem componentSystem;
 
+	@SuppressWarnings("unchecked")
 	@Inject
 	protected TagSystem(ComponentSystem componentSystem) {
 		super(componentSystem, ListenerHelper.createConfiguration(TagComponent.class), true, 6);
-		this.componentSystem = componentSystem;
 	}
 
+	/**
+	 * Get all the entities that share the same tag.
+	 * 
+	 * @param name
+	 *            The name of the tag
+	 * @return The entities that share the same tag.
+	 */
 	public List<Entity> getEntities(String name) {
 		List<Entity> entities = tags.get(name);
 		if (entities == null) {
@@ -45,6 +61,12 @@ public class TagSystem extends ComponentListenerSystem {
 		}
 	}
 
+	/**
+	 * Called by the component when the tag changes.
+	 * 
+	 * @param tag
+	 * @param oldKey
+	 */
 	public void onTagChange(TagComponent tag, String oldKey) {
 		if (!tag.isEnable()) {
 			return;

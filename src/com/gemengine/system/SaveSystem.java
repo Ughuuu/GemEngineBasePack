@@ -32,6 +32,7 @@ public class SaveSystem extends ComponentListenerSystem implements EntityListene
 			this.parent = parent;
 		}
 	}
+
 	private final Map<Integer, List<Integer>> entityToComponents;
 	private final Map<Integer, String> entityToFile;
 	private final Map<String, List<Integer>> fileToEntities;
@@ -42,6 +43,7 @@ public class SaveSystem extends ComponentListenerSystem implements EntityListene
 
 	private final ObjectMapper objectMapper;
 
+	@SuppressWarnings("unchecked")
 	@Inject
 	protected SaveSystem(ComponentSystem componentSystem, EntitySystem entitySystem, AssetSystem assetSystem) {
 		super(componentSystem, ListenerHelper.createConfiguration(Component.class), true, 10);
@@ -128,6 +130,8 @@ public class SaveSystem extends ComponentListenerSystem implements EntityListene
 			break;
 		case DELETE:
 			removeEntity(arg1.getId());
+			break;
+		default:
 			break;
 		}
 	}
