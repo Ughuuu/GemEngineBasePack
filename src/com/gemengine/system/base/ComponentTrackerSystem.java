@@ -96,10 +96,10 @@ public abstract class ComponentTrackerSystem<ComponentTracked extends Component,
 	private void addComponent(ComponentTracked component) {
 		Set<Entity> drawables = componentSystem.getOwner(component).getDescendantsOf(componentTrackingType);
 		for (Entity ent : drawables) {
+			entityToTrackedComponent.put(ent.getId(), component);
 			for (ComponentTrackerListener<ComponentTracked, ComponentTracking> listener : listeners) {
 				listener.onFound(this, component, ent);
 			}
-			entityToTrackedComponent.put(ent.getId(), component);
 		}
 	}
 
