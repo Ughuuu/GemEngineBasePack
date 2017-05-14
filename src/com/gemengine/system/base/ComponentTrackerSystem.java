@@ -98,7 +98,7 @@ public abstract class ComponentTrackerSystem<ComponentTracked extends Component,
 		for (Entity ent : drawables) {
 			entityToTrackedComponent.put(ent.getId(), component);
 			for (ComponentTrackerListener<ComponentTracked, ComponentTracking> listener : listeners) {
-				listener.onFound(this, component, ent);
+				listener.onFound(component, ent);
 			}
 		}
 	}
@@ -108,7 +108,7 @@ public abstract class ComponentTrackerSystem<ComponentTracked extends Component,
 		for (Entity draw : drawables) {
 			entityToTrackedComponent.remove(draw.getId());
 			for (ComponentTrackerListener<ComponentTracked, ComponentTracking> listener : listeners) {
-				listener.onLost(this, draw);
+				listener.onLost(draw);
 			}
 		}
 	}

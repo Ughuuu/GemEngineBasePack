@@ -9,8 +9,7 @@ import com.gemengine.system.base.ComponentTrackerSystem;
 public interface ComponentTrackerListener<ComponentTracked extends Component, ComponentTracking extends Component> {
 	public Set<String> getConfiguration();
 
-	public void onFound(ComponentTrackerSystem<ComponentTracked, ComponentTracking> issuingSystem,
-			ComponentTracked notifier, Entity tracker);
+	public void onFound(ComponentTracked notifier, Entity tracker);
 
-	public void onLost(ComponentTrackerSystem<ComponentTracked, ComponentTracking> issuingSystem, Entity tracker);
+	public void onLost(Entity tracker);
 }
