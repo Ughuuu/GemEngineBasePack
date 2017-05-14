@@ -43,13 +43,14 @@ public abstract class ConstructorSystem<T, U extends Component> extends Componen
 	@Override
 	public <L extends Component> void onNotify(String event, L notifier) {
 		U component = (U) notifier;
-		if (get(component) == null) {
-			T res = create(component);
+		T res = get(component);
+		if (res == null) {
+		res = create(component);
 			if (res == null) {
 				return;
 			}
-			onEvent(event, component, res);
 		}
+		onEvent(event, component, res);
 	}
 
 	protected T add(U comp) {
