@@ -17,6 +17,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class DebugComponent extends OwnedComponent implements ComponentListener, EntityListener {
 	@Getter
+	private int priority = 0;
+	@Getter
 	private Set<String> configuration = ListenerHelper.createConfiguration(Component.class);
 	private final ComponentSystem componentSystem;
 

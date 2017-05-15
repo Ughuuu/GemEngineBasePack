@@ -4,6 +4,8 @@ import com.gemengine.component.Component;
 import com.gemengine.listener.EntityComponentListener;
 import com.gemengine.system.ComponentSystem;
 
+import lombok.Getter;
+
 /**
  * A notifier component extends an ({@link OwnedComponent} and implements an
  * {@link EntityComponentListener} and adds itself as the listener. It listens
@@ -13,8 +15,17 @@ import com.gemengine.system.ComponentSystem;
  *
  */
 public abstract class NotifyComponent extends OwnedComponent implements EntityComponentListener {
+	@Getter
+	private final int priority;
+
+	public NotifyComponent(ComponentSystem componentSystem, int priority) {
+		super(componentSystem);
+		this.priority = priority;
+	}
+
 	public NotifyComponent(ComponentSystem componentSystem) {
 		super(componentSystem);
+		priority = 0;
 	}
 
 	@Override
