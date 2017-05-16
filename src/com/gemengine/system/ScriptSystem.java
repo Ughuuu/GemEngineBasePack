@@ -40,6 +40,10 @@ public class ScriptSystem extends TimedSystem implements ComponentListener, Comp
 	public ScriptSystem(ComponentSystem componentSystem) {
 		super(16, true, 1);
 		this.componentSystem = componentSystem;
+	}
+
+	@Override
+	public void onInit() {
 		componentSystem.addComponentListener(this);
 		componentSystem.addComponentUpdater(this);
 	}
