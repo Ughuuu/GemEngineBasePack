@@ -41,6 +41,7 @@ public class ScriptSystem extends TimedSystem implements ComponentListener, Comp
 		super(16, true, 1);
 		this.componentSystem = componentSystem;
 		componentSystem.addComponentListener(this);
+		componentSystem.addComponentUpdater(this);
 	}
 
 	@Override
