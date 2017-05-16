@@ -2,16 +2,20 @@ package com.gemengine.system;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.badlogic.gdx.Gdx;
 import com.gemengine.component.Component;
 import com.gemengine.component.base.ScriptComponent;
 import com.gemengine.entity.Entity;
 import com.gemengine.listener.ComponentListener;
-import com.gemengine.system.base.ComponentUpdaterSystem;
+import com.gemengine.listener.ComponentUpdaterListener;
+import com.gemengine.system.base.SystemBase;
+import com.gemengine.system.base.TimedSystem;
 import com.gemengine.system.helper.ListenerHelper;
 import com.google.inject.Inject;
 
+import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -23,15 +27,18 @@ import lombok.extern.log4j.Log4j2;
  * @author Dragos
  *
  */
-public class ScriptSystem extends ComponentUpdaterSystem implements ComponentListener {
+public class ScriptSystem extends TimedSystem implements ComponentListener, ComponentUpdaterListener {
 
 	private final ComponentSystem componentSystem;
 	private final List<ScriptComponent> toInit = new ArrayList<ScriptComponent>();
 
+	@Getter
+	private Set<String> configuration = ListenerHelper.createConfiguration(ScriptComponent.class);
+
 	@SuppressWarnings("unchecked")
 	@Inject
 	public ScriptSystem(ComponentSystem componentSystem) {
-		super(componentSystem, ListenerHelper.createConfiguration(ScriptComponent.class), true, 1);
+		super(16, true, 1);
 		this.componentSystem = componentSystem;
 		componentSystem.addComponentListener(this);
 	}
@@ -80,5 +87,29 @@ public class ScriptSystem extends ComponentUpdaterSystem implements ComponentLis
 
 	@Override
 	public <T extends Component> void onTypeChange(Class<T> arg0) {
+	}
+
+	@Override
+	public void onAfterEntities() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onBeforeEntities() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Set<String> getConfiguration() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getPriority() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

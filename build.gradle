@@ -6,23 +6,23 @@ repositories {
 }
 
 ext {
-	gemEngineVersion = '174ea4dc03'
-     lombokVersion = "1.16.16"
-    }
+	gemEngineVersion = '825ec1d1e2'
+	lombokVersion = "1.16.16"
+}
 
-    dependencies {
-    	compileOnly "com.github.Ughuuu:GemMaker:$gemEngineVersion"
-    	compileOnly "org.projectlombok:lombok:$lombokVersion"
-    }
-    sourceSets{
-    	src
-	    main{
-	    	java{
-	    			srcDir 'src'
-				}
-	    	}
-    }
+dependencies {
+	compileOnly "com.github.Ughuuu:GemMaker:$gemEngineVersion"
+	compileOnly "org.projectlombok:lombok:$lombokVersion"
+}
+sourceSets{
+	src
+	main{
+		java{
+			srcDir 'src'
+		}
+	}
+}
     
-    jar{
-    from sourceSets.src.output
-    }
+jar{
+	from sourceSets.src.output
+}
