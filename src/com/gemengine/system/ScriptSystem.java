@@ -33,7 +33,7 @@ public class ScriptSystem extends TimedSystem implements ComponentListener, Comp
 	private final List<ScriptComponent> toInit = new ArrayList<ScriptComponent>();
 
 	@Getter
-	private Set<String> configuration = ListenerHelper.createConfiguration(ScriptComponent.class);
+	private final Set<String> configuration = ListenerHelper.createConfiguration(ScriptComponent.class);
 
 	@SuppressWarnings("unchecked")
 	@Inject
@@ -99,17 +99,5 @@ public class ScriptSystem extends TimedSystem implements ComponentListener, Comp
 	public void onBeforeEntities() {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public Set<String> getConfiguration() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getPriority() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }
