@@ -7,6 +7,13 @@ import com.google.inject.Inject;
 
 import lombok.Getter;
 
+/**
+ * Tag component. You may also use different queries on the tags, such as find
+ * all entities that have a specific tag(from the {@link TagSystem})
+ * 
+ * @author Dragos
+ *
+ */
 public class TagComponent extends OwnedComponent {
 	@Getter
 	private String name = "";

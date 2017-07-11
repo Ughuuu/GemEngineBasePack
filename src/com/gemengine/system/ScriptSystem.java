@@ -68,6 +68,7 @@ public class ScriptSystem extends TimedSystem implements ComponentListener, Comp
 					script.setEnable(true);
 					script.onInit();
 				} catch (Throwable t) {
+					script.setEnable(false);
 					log.warn("Script System update", t);
 				}
 			}

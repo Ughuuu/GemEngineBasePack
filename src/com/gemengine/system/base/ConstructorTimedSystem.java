@@ -13,6 +13,14 @@ import com.gemengine.system.helper.ListenerHelper;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * Same as Constructor System but extends a TimedSystem
+ * 
+ * @author Dragos
+ *
+ * @param <T>
+ * @param <U>
+ */
 @Log4j2
 public abstract class ConstructorTimedSystem<T, U extends Component> extends TimedSystem implements ComponentListener {
 	private final ComponentSystem componentSystem;

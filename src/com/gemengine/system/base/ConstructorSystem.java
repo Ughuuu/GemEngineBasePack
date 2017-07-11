@@ -10,6 +10,26 @@ import com.gemengine.system.helper.ListenerHelper;
 
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * This system is used to hold actual implementation for components. If your
+ * component only holds data(as it should) and the system holds the class that
+ * represents the constructed object, this system keeps the link between
+ * component id and you actual object. It gives you a create function which you
+ * have to implement, and you have to give it a component type as well as a
+ * object type of which the component represents in your system.
+ * 
+ * Ex: FileComponent represents a File(but FileComponent only has a string, the
+ * name).
+ * 
+ * So this system would make a link between the FileComponent and the File.
+ * 
+ * @author Dragos
+ *
+ * @param <T>
+ *            The representation of the component
+ * @param <U>
+ *            The component
+ */
 @Log4j2
 public abstract class ConstructorSystem<T, U extends Component> extends ComponentListenerSystem {
 	private final ComponentSystem componentSystem;
@@ -22,8 +42,15 @@ public abstract class ConstructorSystem<T, U extends Component> extends Componen
 		types = new HashMap<Integer, T>();
 	}
 
-	public T get(U labelComponent) {
-		Integer id = labelComponent.getId();
+	/**
+	 * Get the object represented by this component.
+	 * 
+	 * @param component
+	 *            The component
+	 * @return
+	 */
+	public T get(U component) {
+		Integer id = component.getId();
 		return types.get(id);
 	}
 
@@ -45,7 +72,7 @@ public abstract class ConstructorSystem<T, U extends Component> extends Componen
 		U component = (U) notifier;
 		T res = get(component);
 		if (res == null) {
-		res = create(component);
+			res = create(component);
 			if (res == null) {
 				return;
 			}
@@ -57,10 +84,18 @@ public abstract class ConstructorSystem<T, U extends Component> extends Componen
 		T resource = create(comp);
 		if (resource != null) {
 			types.put(comp.getId(), resource);
+			// componentSystem.notifyFrom("create", comp);
 		}
 		return resource;
 	}
 
+	/**
+	 * Called when the system considers the component representation needs to be
+	 * created(or by you, if you think the object needs to be recreated)
+	 * 
+	 * @param component
+	 * @return
+	 */
 	protected abstract T create(U component);
 
 	protected void onEvent(String event, U notifier, T resource) {

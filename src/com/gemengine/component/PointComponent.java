@@ -10,6 +10,15 @@ import com.gemengine.entity.Entity;
 import com.gemengine.system.ComponentSystem;
 import com.google.inject.Inject;
 
+/**
+ * This component represents the position, scale and rotation of the object.
+ * These properties may also be used for other components, such as sprites, or
+ * anything that can be located somewhere spatially. Whenever one property of it
+ * changes, other components under same entity are notified.
+ * 
+ * @author Dragos
+ *
+ */
 public class PointComponent extends OwnedComponent {
 	private Matrix4 mat = new Matrix4();
 	private final Quaternion quaternion = new Quaternion();

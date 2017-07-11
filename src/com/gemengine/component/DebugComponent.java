@@ -2,6 +2,7 @@ package com.gemengine.component;
 
 import java.util.Set;
 
+import com.gemengine.component.Component;
 import com.gemengine.component.base.OwnedComponent;
 import com.gemengine.entity.Entity;
 import com.gemengine.listener.ComponentListener;
@@ -14,6 +15,13 @@ import com.google.inject.Inject;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * This is an implementation of a component and entity listener. This basically
+ * listens to all events that happen and logs them.
+ * 
+ * @author Dragos
+ *
+ */
 @Log4j2
 public class DebugComponent extends OwnedComponent implements ComponentListener, EntityListener {
 	@Getter
