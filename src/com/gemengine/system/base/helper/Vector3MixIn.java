@@ -1,4 +1,4 @@
-package com.gemengine.system.helper;
+package com.gemengine.system.base.helper;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

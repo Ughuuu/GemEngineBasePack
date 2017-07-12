@@ -1,4 +1,4 @@
-package com.gemengine.system;
+package com.gemengine.system.base;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,8 +9,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
-import com.gemengine.component.TestComponent;
+import com.gemengine.component.base.TestComponent;
 import com.gemengine.entity.Entity;
+import com.gemengine.system.ComponentSystem;
+import com.gemengine.system.EntitySystem;
 import com.gemengine.system.base.SystemBase;
 import com.gemengine.system.base.TimedSystem;
 import com.google.inject.Inject;
@@ -46,7 +48,7 @@ public class PerformanceTestSystem extends TimedSystem {
 	public void onInit() {
 		boolean result = true;
 		//startTest();
-		//createMultipleComponents();
+		createMultipleComponents();
 		//endTest();
 	}
 

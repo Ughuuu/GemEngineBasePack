@@ -1,4 +1,4 @@
-package com.gemengine.system;
+package com.gemengine.system.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,10 +13,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gemengine.component.Component;
 import com.gemengine.entity.Entity;
 import com.gemengine.listener.EntityListener;
+import com.gemengine.system.AssetSystem;
+import com.gemengine.system.ComponentSystem;
+import com.gemengine.system.EntitySystem;
 import com.gemengine.system.base.ComponentListenerSystem;
 import com.gemengine.system.base.SystemBase;
+import com.gemengine.system.base.helper.ObjectMapperConfigurator;
 import com.gemengine.system.helper.ListenerHelper;
-import com.gemengine.system.helper.ObjectMapperConfigurator;
 import com.google.inject.Inject;
 
 import lombok.val;

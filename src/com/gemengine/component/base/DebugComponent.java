@@ -1,9 +1,8 @@
-package com.gemengine.component;
+package com.gemengine.component.base;
 
 import java.util.Set;
 
 import com.gemengine.component.Component;
-import com.gemengine.component.base.OwnedComponent;
 import com.gemengine.entity.Entity;
 import com.gemengine.listener.ComponentListener;
 import com.gemengine.listener.EntityListener;

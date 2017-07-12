@@ -1,4 +1,4 @@
-package com.gemengine.system.helper;
+package com.gemengine.system.base.helper;
 
 import com.badlogic.gdx.math.Vector3;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.gemengine.component.Component;
 import com.gemengine.component.base.OwnedComponent;
-import com.gemengine.component.PointComponent;
+import com.gemengine.component.base.PointComponent;
 
 public class ObjectMapperConfigurator {
 	public static void configure(ObjectMapper objectMapper) {

@@ -15,7 +15,7 @@ import com.gemengine.listener.PriorityListener;
 import com.gemengine.system.ComponentSystem;
 import com.gemengine.system.EntitySystem;
 import com.gemengine.system.base.ComponentListenerSystem;
-import com.gemengine.system.listener.ComponentTrackerListener;
+import com.gemengine.system.listener.base.ComponentTrackerListener;
 
 import lombok.val;
 import lombok.extern.log4j.Log4j2;

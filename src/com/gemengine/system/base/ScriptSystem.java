@@ -1,4 +1,4 @@
-package com.gemengine.system;
+package com.gemengine.system.base;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ import com.gemengine.component.base.ScriptComponent;
 import com.gemengine.entity.Entity;
 import com.gemengine.listener.ComponentListener;
 import com.gemengine.listener.ComponentUpdaterListener;
+import com.gemengine.system.ComponentSystem;
 import com.gemengine.system.base.SystemBase;
 import com.gemengine.system.base.TimedSystem;
 import com.gemengine.system.helper.ListenerHelper;

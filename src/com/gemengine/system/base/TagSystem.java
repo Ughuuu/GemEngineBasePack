@@ -1,4 +1,4 @@
-package com.gemengine.system;
+package com.gemengine.system.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.gemengine.component.Component;
-import com.gemengine.component.TagComponent;
+import com.gemengine.component.base.TagComponent;
 import com.gemengine.entity.Entity;
+import com.gemengine.system.ComponentSystem;
 import com.gemengine.system.base.ComponentListenerSystem;
 import com.gemengine.system.helper.ListenerHelper;
 import com.google.inject.Inject;

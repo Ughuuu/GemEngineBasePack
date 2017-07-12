@@ -1,8 +1,7 @@
-package com.gemengine.component;
+package com.gemengine.component.base;
 
-import com.gemengine.component.base.OwnedComponent;
 import com.gemengine.system.ComponentSystem;
-import com.gemengine.system.TagSystem;
+import com.gemengine.system.base.TagSystem;
 import com.google.inject.Inject;
 
 import lombok.Getter;

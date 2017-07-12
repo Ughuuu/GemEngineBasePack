@@ -1,4 +1,4 @@
-package com.gemengine.system.helper;
+package com.gemengine.system.base.helper;
 
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;

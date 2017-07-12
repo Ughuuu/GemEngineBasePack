@@ -1,11 +1,10 @@
-package com.gemengine.component;
+package com.gemengine.component.base;
 
 import java.util.Set;
 
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
-import com.gemengine.component.base.OwnedComponent;
 import com.gemengine.entity.Entity;
 import com.gemengine.system.ComponentSystem;
 import com.google.inject.Inject;
