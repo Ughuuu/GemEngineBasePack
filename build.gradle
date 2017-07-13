@@ -9,7 +9,7 @@ repositories {
 }
 
 ext {
-	gemEngineVersion = '-SNAPSHOT'
+	gemEngineVersion = 'master-SNAPSHOT'
 	lombokVersion = "1.16.16"
 }
 
